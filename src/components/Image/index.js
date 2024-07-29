@@ -5,7 +5,7 @@ import { useState, forwardRef } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Image({ src, className, fallback: customFallback = images.noImage, ...porps }, ref) {
+function Image({ src, className, fallback: customFallback = images.noImage, alt = '', ...porps }, ref) {
     const [fallback, setFallback] = useState('');
 
     const handleError = () => {
@@ -13,7 +13,14 @@ function Image({ src, className, fallback: customFallback = images.noImage, ...p
     };
 
     return (
-        <img className={cx('wrapper', className)} ref={ref} {...porps} src={fallback || src} onError={handleError} />
+        <img
+            className={cx('wrapper', className)}
+            ref={ref}
+            {...porps}
+            src={fallback || src}
+            onError={handleError}
+            alt={alt}
+        />
     );
 }
 

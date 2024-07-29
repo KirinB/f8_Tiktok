@@ -17,13 +17,13 @@ const publicRoutes = [
         component: Following,
     },
     {
-        path: '/profile',
-        component: Profile,
-    },
-    {
         path: '/upload',
         component: Upload,
         layout: HeaderOnly,
+    },
+    {
+        path: '/:nickname',
+        component: Profile,
     },
 ];
 
