@@ -11,17 +11,18 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-import styles from '~/components/Layout/components/Header/Header.module.scss';
+import styles from '~/layouts/components/Header/Header.module.scss';
 import images from '~/assets/images';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-
+import config from '~/config';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -93,7 +94,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link to={config.routes.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
                 <Search />
                 <div className={cx('actions')}>
@@ -127,7 +130,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/438255654_1678682075870156_810213145808807830_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ojqfzOUYcHEQ7kNvgFEsekH&_nc_ht=scontent.fsgn5-9.fna&oh=00_AYAl3qTwPKTernBkuu79MIt9-3ZjOIwk2qu7znEdVIpEZQ&oe=66A66913"
+                                src="https://criticalhits.com.br/wp-content/uploads/2021/10/Kirin.jpg"
                                 alt="DoanPhuongUyen"
                             />
                         ) : (
